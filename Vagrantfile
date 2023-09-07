@@ -13,18 +13,10 @@ Vagrant.configure(2) do |config|
   rm /etc/resolv.conf
   echo "nameserver 8.8.8.8" > /etc/resolv.conf
   sudo apt-get update
+    
+  sudo apt-get install docker -y
 
-
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-  sudo apt-key fingerprint 0EBFCD88
-
-  sudo add-apt-repository \
-     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-     $(lsb_release -cs) \
-     stable"
-
-  sudo apt-get update
+  sudo apt-get install docker-compose -y
 
   SHELL
 end
@@ -41,19 +33,11 @@ config.vm.define "vm2" do |vm2|
 
     rm /etc/resolv.conf
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
-
     sudo apt-get update
+    
+    sudo apt-get install docker -y
 
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-    sudo apt-key fingerprint 0EBFCD88
-
-    sudo add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
-       stable"
-
-    sudo apt-get update
+    sudo apt-get install docker-compose -y
 
   SHELL
 end
